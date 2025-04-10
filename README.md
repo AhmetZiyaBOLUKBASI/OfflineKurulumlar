@@ -19,7 +19,10 @@ cat ./releaseConfiguration.py
 <Oracle Installation Path>/oracle_common/common/bin/wlst.sh releaseConfiguration.py
 ```
 
+ 
 ![Lock and Edit Button](https://docs.oracle.com/en/storage/storage-software/storagetek-tape-analytics/2.4/stais/img/wl_lockedit.png)
+
+To address this, we will develop a project that can be automatically executed via the Ansible Automation API.
 
 ## How Do the Playbook Tasks Work?
 
@@ -27,3 +30,13 @@ cat ./releaseConfiguration.py
 - In the first task, titled "**Read wlst.sh Path From Weblogic Process**", the *ORACLE_HOME* variable is retrieved from any running WebLogic process on the server.
 - In the task titled "**Set WLST Path Variable for Ansible**", the full path of the *wlst.sh* script is assigned to the variable ***wlstToolPath***.
 - Finally, the task "**Run WLST Script For Release Config**" executes the necessary script.
+
+> [!IMPORTANT]
+> Consider that four variables:
+>  - userName
+>  - console_pass
+>  - inventory_hostname_short
+>  - port
+> These variables could be read from variable file encrpyted by **ansible vault** for *security*.
+>
+> In second way , it should not be forgatten that using extra variables before execution.
