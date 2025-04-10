@@ -37,6 +37,7 @@ To address this, we will develop a project that can be automatically executed vi
 >  - console_pass
 >  - inventory_hostname_short
 >  - port
+>    
 > These variables could be read from variable file encrpyted by **ansible vault** for *security*.
 >
 > In second way , it should not be forgatten that using extra variables before execution.
